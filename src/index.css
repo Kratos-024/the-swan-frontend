@@ -1,1 +1,12 @@
 @import "tailwindcss";
+.light-mode {
+  color-scheme: light;
+  background-color: white;
+  color: black;
+}
+.dark-mode {
+  /* Don't forget the color-scheme css attribute. This will avoid light scrollbars in dark mode. */
+  color-scheme: dark;
+  background-color: black;
+  color: white;
+}

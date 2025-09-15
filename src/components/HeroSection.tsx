@@ -1,4 +1,5 @@
 import { NavBar } from "./NavBar";
+import ProductShowcase from "./ProductShowcase";
 
 interface HeroSectionProps {
   isDark: boolean;
@@ -8,19 +9,25 @@ interface HeroSectionProps {
 export const HeroSection = ({ isDark, toggleTheme }: HeroSectionProps) => {
   return (
     <section
-      className="bg-white dark:bg-gray-900 transition-colors 
-    duration-200 relative"
+      className={`min-h-screen  relative ${isDark ? "bg-black" : "bg-white"}`}
     >
       <div className="relative z-40">
         <NavBar isDark={isDark} toggleTheme={toggleTheme} />
       </div>
 
-      <div className="absolute top-0 left-0 right-0 z-30 pt-16">
+      <div className="relative z-30 pt-16">
         <div className="text-center py-20 px-6">
-          <h1 className="text-4xl md:text-6xl xl:text-7xl leading-tight font-bold text-gray-900 dark:text-white mb-6 max-w-5xl mx-auto">
+          <h1
+            className={`text-4xl md:text-6xl xl:text-7xl leading-tight font-bold 
+            mb-6 max-w-5xl mx-auto  ${isDark ? "text-white" : "text-gray-900"}`}
+          >
             Turn long videos into viral clips
           </h1>
-          <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p
+            className={`text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed  ${
+              isDark ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             AI-powered clip extraction with viral scoring. Auto-generate
             captions, extract custom moments, and optimize for TikTok, YouTube
             Shorts, and Reels.
@@ -48,12 +55,17 @@ export const HeroSection = ({ isDark, toggleTheme }: HeroSectionProps) => {
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
             </button>
-            <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+            <span
+              className={`text-sm font-medium  ${
+                isDark ? "text-gray-400" : "text-gray-600"
+              }`}
+            >
               No credit card required
             </span>
           </div>
         </div>
       </div>
+      <ProductShowcase />
     </section>
   );
 };
