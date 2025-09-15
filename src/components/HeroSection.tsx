@@ -1,3 +1,5 @@
+import FAQComponent from "./FAQs";
+import FeaturesSection from "./Features";
 import { NavBar } from "./NavBar";
 import ProductShowcase from "./ProductShowcase";
 
@@ -9,7 +11,12 @@ interface HeroSectionProps {
 export const HeroSection = ({ isDark, toggleTheme }: HeroSectionProps) => {
   return (
     <section
-      className={`min-h-screen  relative ${isDark ? "bg-black" : "bg-white"}`}
+      className={`min-h-screen 
+         relative ${
+           isDark
+             ? "bg-gradient-to-br from-black/[0.03] to-black/[0.01] dark:bg-gradient-to-br dark:from-white/[0.08] dark:to-white/[0.02]"
+             : "bg-white"
+         }`}
     >
       <div className="relative z-40">
         <NavBar isDark={isDark} toggleTheme={toggleTheme} />
@@ -66,6 +73,12 @@ export const HeroSection = ({ isDark, toggleTheme }: HeroSectionProps) => {
         </div>
       </div>
       <ProductShowcase />
+      <div className=" mt-[96px]">
+        <FeaturesSection />
+      </div>
+      <div className=" mt-[48px]">
+        <FAQComponent />
+      </div>
     </section>
   );
 };

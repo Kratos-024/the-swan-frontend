@@ -1,10 +1,24 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
 const ProductShowcase = ({
   imageUrl = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
   alt = "AI Portrait Studio Interface",
   title = "AI Portrait Studio",
 }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.6, 1.2]);
   return (
-    <div className="relative z-10 w-fit    rounded-lg md:rounded-3xl  bg-amber-200  ">
+    <motion.div
+      ref={ref}
+      style={{ scale }}
+      transition={{ type: "spring", stiffness: 80, damping: 20 }}
+      className="relative z-10: 2xl:w-[1680px] xl:w-[1360px] lg:w-[1240px] mx-auto bg-red-100 rounded-lg md:rounded-3xl    "
+    >
       <div className="mx-auto flex    rounded-lg md:rounded-3xl  justify-center opacity-100">
         <div
           className="relative w-fit aspect-video
@@ -18,7 +32,7 @@ const ProductShowcase = ({
              rounded-lg md:rounded-3xl shadow-2xl"
             src={imageUrl}
             loading="lazy"
-          />
+          ></img>
 
           <div className="absolute inset-0 rounded-lg md:rounded-3xl bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
 
@@ -29,7 +43,7 @@ const ProductShowcase = ({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
