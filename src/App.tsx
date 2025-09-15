@@ -1,6 +1,7 @@
 import { DarkModeProvider, useDarkMode } from "@rbnd/react-dark-mode";
 import "./index.css";
 import { HomePage } from "./pages/HomePage";
+import { ChatPage } from "./pages/ChatPage";
 function App() {
   return (
     <DarkModeProvider>
@@ -19,7 +20,7 @@ function MainApp() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300`}>
-      <HomePage isDark={mode === "dark"} toggleTheme={darkModeHandler} />
+      <ChatPage />
     </div>
   );
 }
