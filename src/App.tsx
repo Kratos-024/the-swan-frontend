@@ -1,6 +1,6 @@
-import { HeroSection } from "./components/HeroSection";
 import { DarkModeProvider, useDarkMode } from "@rbnd/react-dark-mode";
 import "./index.css";
+import { HomePage } from "./pages/HomePage";
 function App() {
   return (
     <DarkModeProvider>
@@ -19,7 +19,7 @@ function MainApp() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300`}>
-      <HeroSection isDark={mode === "dark"} toggleTheme={darkModeHandler} />
+      <HomePage isDark={mode === "dark"} toggleTheme={darkModeHandler} />
     </div>
   );
 }

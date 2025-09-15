@@ -1,5 +1,3 @@
-import FAQComponent from "./FAQs";
-import FeaturesSection from "./Features";
 import { NavBar } from "./NavBar";
 import ProductShowcase from "./ProductShowcase";
 
@@ -71,13 +69,7 @@ export const HeroSection = ({ isDark, toggleTheme }: HeroSectionProps) => {
             </span>
           </div>
         </div>
-      </div>
-      <ProductShowcase />
-      <div className=" mt-[96px]">
-        <FeaturesSection />
-      </div>
-      <div className=" mt-[48px]">
-        <FAQComponent />
+        <ProductShowcase />
       </div>
     </section>
   );

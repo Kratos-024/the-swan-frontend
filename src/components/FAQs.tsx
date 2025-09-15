@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IoChevronDown } from "react-icons/io5";
+import { ChevronDown } from "lucide-react";
 
 interface FAQItem {
   id: string;
@@ -74,43 +74,36 @@ const FAQComponent: React.FC<FAQProps> = ({
   const isOpen = (id: string): boolean => openItems.has(id);
 
   return (
-    <div
-      className="max-w-full container mx-auto px-4 md:px-6 
-    2xl:max-w-[1400px]  py-24 lg:py-32"
-    >
+    <div className="max-w-full container mx-auto px-4 md:px-6 2xl:max-w-[1400px] py-24 lg:py-32">
       <div className="rounded-2xl">
-        <div className="max-w-2xl  mx-auto text-center mb-10">
-          <h2 className="text-2xl font-bold md:text-3xl md:leading-tight text-gray-900">
+        <div className="max-w-2xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold md:text-3xl md:leading-tight text-gray-900 dark:text-white">
             {title}
           </h2>
-          <p className="mt-4 text-gray-600">{subtitle}</p>
+          <p className="mt-4 text-gray-600 dark:text-gray-300">{subtitle}</p>
         </div>
-        <div className="w-full max-w-5xl  mx-auto ">
+
+        <div className="w-full max-w-5xl mx-auto">
           <div className="w-full space-y-4">
             {items.map((item) => (
               <div
                 key={item.id}
-                className="  rounded-lg px-6 w-full bg-linear-to-br from-black/[0.01] to-black/[0.05]  
-                shadow-sm"
+                className="rounded-lg px-6 w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-200"
               >
                 <h3 className="flex">
                   <button
                     type="button"
                     onClick={() => toggleItem(item.id)}
                     aria-expanded={isOpen(item.id)}
-                    className="flex cursor-pointer flex-1 items-start justify-between gap-4 rounded-md text-left transition-all outline-none hover:underline
-                py-4 text-lg font-medium"
+                    className="flex cursor-pointer flex-1 items-start justify-between gap-4 rounded-md text-left transition-all outline-none hover:opacity-80 py-4 text-lg font-medium"
                   >
-                    <div className="flex items-center  gap-3">
-                      <span
-                        className="text-start mr-3
-                       text-slate-900 text-[21px]"
-                      >
+                    <div className="flex items-center gap-3">
+                      <span className="text-start mr-3 text-[21px] text-gray-900 dark:text-white">
                         {item.question}
                       </span>
                     </div>
-                    <IoChevronDown
-                      className={`text-gray-700 size-5 shrink-0 transition-transform duration-200 ${
+                    <ChevronDown
+                      className={`size-5 shrink-0 transition-all duration-200 text-gray-700 dark:text-gray-300 ${
                         isOpen(item.id) ? "rotate-180" : ""
                       }`}
                       aria-hidden="true"
@@ -118,17 +111,13 @@ const FAQComponent: React.FC<FAQProps> = ({
                   </button>
                 </h3>
                 <div
-                  className={`overflow-hidden transition-all 
-                    duration-200 ease-in-out ${
-                      isOpen(item.id)
-                        ? "max-h-96 opacity-100 pb-2"
-                        : "max-h-0 opacity-0"
-                    }`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen(item.id)
+                      ? "max-h-96 opacity-100 pb-4"
+                      : "max-h-0 opacity-0"
+                  }`}
                 >
-                  <div
-                    className="text-md text-gray-800 
-                  leading-relaxed pl-8 sm:pl-12"
-                  >
+                  <div className="text-md leading-relaxed pl-8 sm:pl-12 text-gray-700 dark:text-gray-300">
                     {item.answer}
                   </div>
                 </div>

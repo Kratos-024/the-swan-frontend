@@ -21,3 +21,9 @@
     transform: translateY(0);
   }
 }
+.backgroun {
+  background-color: #0a0a0a;
+}
+.muted-forground {
+  font: #a1a1a1;
+}
